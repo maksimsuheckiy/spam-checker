@@ -1,9 +1,10 @@
 import path from "path";
-import { Configuration } from "webpack";
+import {Configuration} from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import ESLintPlugin from "eslint-webpack-plugin";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import {CleanWebpackPlugin} from "clean-webpack-plugin";
+import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin';
 
 const config: Configuration = {
     mode: "production",
@@ -36,7 +37,7 @@ const config: Configuration = {
                     'style-loader',
                     {
                         loader: 'css-loader',
-                        options: { modules: true }
+                        options: {modules: true}
                     },
                     'sass-loader'
                 ]
@@ -45,6 +46,43 @@ const config: Configuration = {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/,
                 type: 'asset/resource'
             }
+        ],
+    },
+    optimization: {
+        minimizer: [
+            new ImageMinimizerPlugin({
+                minimizer: {
+                    implementation: ImageMinimizerPlugin.imageminMinify,
+                    options: {
+                        plugins: [
+                            ["gifsicle", {interlaced: true}],
+                            ["jpegtran", {progressive: true}],
+                            ["optipng", {optimizationLevel: 5}],
+                            ["svgo",
+                                {
+                                    plugins: [
+                                        {
+                                            name: "preset-default",
+                                            params: {
+                                                overrides: {
+                                                    removeViewBox: false,
+                                                    addAttributesToSVGElement: {
+                                                        params: {
+                                                            attributes: [
+                                                                {xmlns: "http://www.w3.org/2000/svg"},
+                                                            ],
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    ],
+                                },
+                            ],
+                        ],
+                    },
+                },
+            }),
         ],
     },
     resolve: {
