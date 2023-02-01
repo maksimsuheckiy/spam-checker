@@ -7,6 +7,7 @@ const Home = () => {
         <>
             <img src={logo} alt="" width="100" height="auto"/>
             <div className={styles.container}>Home page</div>
+            <div className={styles['container__header']}>Home page header</div>
         </>
     )
 }
