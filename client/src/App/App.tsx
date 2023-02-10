@@ -1,11 +1,16 @@
 import React from "react";
-import Home from "./components/Home/Home";
+import './assets/styles/reset.css';
+import './assets/styles/main.scss';
+import Home from "./containers/Home/Home";
+import Header from "./parts/Header/Header";
+import Footer from "./parts/Footer/Footer";
 
 const App = () => {
     return(
         <>
+            <Header/>
             <Home/>
-            <h1>My TS APP</h1>
+            <Footer/>
         </>
     )
 };

@@ -1,0 +1,41 @@
+.header {
+    border-bottom: 1px solid #25262B;
+    background-color: #000;
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
+    &__company {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__company-name {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 1.3;
+        letter-spacing: -0.04em;
+        color: #FFF;
+    }
+
+    &__control {
+        gap: 10px;
+    }
+}
+
+.header-nav {
+    padding: 0 20px;
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    &__item {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.55;
+        color: #909296;
+    }
+}

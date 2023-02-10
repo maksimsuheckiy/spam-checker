@@ -1,0 +1,32 @@
+.footer {
+    background-color: #000;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__copyright {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.55;
+        color: #5C5F66;
+        text-align: center;
+    }
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 33px;
+    &__item {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1.55;
+        color: #909296;
+    }
+}
